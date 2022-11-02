@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\SiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,4 +52,14 @@ Route::middleware('locale')->group(function () {
             Route::put('profile/password', 'password')->name('password');
         });
     });
+    Route::get('bellapapelaria', [SiteController::class, 'index'])->name('siteindex');
+    Route::get('bellapapelaria/teste', [SiteController::class, 'produtos'])->name('prod');
+    //Route::get('bellapapelaria/sobre')->name('sobre');
+    Route::get('bellapapelaria/sobre', function () {
+        return view('layouts.site.sobre');
+    })->name('sobre');
+    //Route::get('informacoes/{id}', [SiteController::class, 'informacoes'])->name('informacoes');
+    //$url = route('informacoes', ['id' => 1]);
+
+
 });
