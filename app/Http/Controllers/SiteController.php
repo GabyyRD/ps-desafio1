@@ -30,8 +30,14 @@ class SiteController extends Controller
     public function produtos()
     {
         $produtos = Produto::all();
-        $produtos->load('categorias');
+        $produtos->load('categoria');
         return view('site.index', compact('produtos'));
+    }
+
+
+    public function sobre()
+    {
+        return view('layouts.site.sobre');
     }
 
 
@@ -57,19 +63,16 @@ class SiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
     public function show($id)
     {
-        //
-    }
+        if (!$produto = Produto::find($id))
+            return redirect()->back();
 
-
-    public function informacoes(Request $request, $id)
-    {
-        //$id = $request->id;
-        $produto = Produto::find($id);
-        //$produto->load('categorias'); //estava com s
-
-        return view('layouts.site.detalhes', compact('produto', 'id'));
+        return view('layouts.site.detalhes', [
+            'produto' => $produto
+        ]);
     }
     /**
      * Show the form for editing the specified resource.

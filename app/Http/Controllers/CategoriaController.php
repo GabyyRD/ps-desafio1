@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Http\Request\StoreCategoriaRequest;
-
 use App\Models\Categoria;
-use App\Models\Produto;
+use App\Http\Requests\UpdateCategoriaRequest;
+use App\Http\Requests\StoreCategoriaRequest;
+use Illuminate\Support\Facades\Storage;
 
 class CategoriaController extends Controller
 {
@@ -28,26 +28,24 @@ class CategoriaController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StoreCategoriaRequest $request)
     {
-        $rules = [
-            'categoria' => 'required|string|max:255'
-        ];
+        $data = $request->validated();
 
-        $data = $request->validate($rules);
-
-        $categoria = Categoria::create($data);
-        Categoria::create($data);
+        $categorias = Categoria::create($data);
+        //testar o de cima  com s e tirar o de baixo
+        //Categoria::create($data);
 
         return redirect()->route('categoria.index')->with('success','Categoria cadastrada com sucesso!');
     }
 
-    //public function show($id)
-    //{
-     //   $categoria = Categoria::find($id);
+    public function show($id)
+    {
+        $categorias = Categoria::find($id);
+        //testar com s
 
-       // return response()->json($categoria);
-    //}
+        return response()->json($categorias);
+    }
 
     public function edit($id)
     {
@@ -56,24 +54,22 @@ class CategoriaController extends Controller
         return view('categoria.crud', compact('categoria'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateCategoriaRequest $request, $id)
     {
-        $rules = [
-            'categoria' => 'required|string|max:225',
-        ];
+        $data = $request->validated();
 
-        $data = $request->validate($rules);
-
-        $categoria = Categoria::find($id);
-        $categoria->update($data);
+        $categorias = Categoria::find($id);
+        $categorias->update($data);
+        //testar com s os dois
 
         return redirect()->route('categoria.index')->with('success', 'Categoria atualizada com sucesso!');
     }
 
     public function destroy($id)
     {
-        $categoria = Categoria::find($id);
-        $categoria->delete();
+        $categorias= Categoria::find($id);
+        $categorias->delete();
+        //testar com s os dois
 
         return redirect()->route('categoria.index')->with('success', 'Categoria excluída com sucesso!');
     }

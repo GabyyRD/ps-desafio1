@@ -54,12 +54,10 @@ Route::middleware('locale')->group(function () {
     });
     Route::get('bellapapelaria', [SiteController::class, 'index'])->name('siteindex');
     Route::get('bellapapelaria/teste', [SiteController::class, 'produtos'])->name('prod');
-    //Route::get('bellapapelaria/sobre')->name('sobre');
-    Route::get('bellapapelaria/sobre', function () {
-        return view('layouts.site.sobre');
-    })->name('sobre');
-    //Route::get('informacoes/{id}', [SiteController::class, 'informacoes'])->name('informacoes');
-    //$url = route('informacoes', ['id' => 1]);
+
+    Route::get('bellapapelaria/sobre', [SiteController::class, 'sobre'])->name('sobre');
+    Route::get('informacoes/{id}', [SiteController::class, 'show'])->name('informacoes');
+
 
 
 });

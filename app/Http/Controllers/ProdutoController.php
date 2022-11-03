@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Categoria;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateProdutoRequest;
+use App\Http\Requests\StoreProdutoRequest;
 use Illuminate\Support\Facades\Storage;
-
 
 class ProdutoController extends Controller
 {
@@ -28,20 +29,12 @@ class ProdutoController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StoreProdutoRequest $request)
     {
-        $rules = [
-            'nome' => 'required|string|max:70',
-            'descricao' => 'required|string|max:255',
-            'preco' => 'required|integer|max:100',
-            'quantidade' => 'required|integer',
-            'categoria_id' => 'required',
-        ];
-
-        $data = $request->validate($rules); 
+        $data = $request->validated(); 
 
         if ($request->hasFile('imagem')){
-            $datas['imagem'] = $request->file('imagem')->store('produtos','public');
+            $data['imagem'] = $request->file('imagem')->store('produtos','public');
         }
         Produto::create($data);
 
@@ -68,28 +61,20 @@ class ProdutoController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(UpdateProdutoRequest $request, $id)
     {
-        $rules = [
-            'nome' => 'required|string|max:70',
-            'descricao' => 'required|string|max:225',
-            'preco' => 'required|integer|max:100',
-            'quantidade' => 'required|integer',
-            'categoria_id' => 'required',
-        ];
-
-        $data = $request->validate($rules); 
+        $data = $request->validated(); 
 
         $produto = Produto::find($id);
 
         if ($request->hasFile('imagem')){
             Storage::delete('public/' . $produto->imagem);
-            $datas['imagem'] = $request->file('imagem')->store('produtos','public');
+            $data['imagem'] = $request->file('imagem')->store('produtos','public');
         }
         
-        $produto->update($rules);
+        $produto->update($data); //estava rules
 
-        return redirect()->route('produto.index')->with('success', 'Produto cadastrado com sucesso!');
+        return redirect()->route('produto.index')->with('success', 'Produto atualizado com sucesso!');
     }
 
     public function destroy($id)

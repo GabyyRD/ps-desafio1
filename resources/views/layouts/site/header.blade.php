@@ -1,6 +1,6 @@
 <header id="topo">
-    <h1 class="">teste</h1>
-    <form method="GET" class="">
+    <h1 class="">Esta é a barra de navegação</h1>
+    <form method="GET" class="teste">
         <input type="text" id="search" placeholder="Pesquisar...">
         <input type=submit value="Enviar">
     </form>

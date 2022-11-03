@@ -1,10 +1,10 @@
 @extends('layouts.site.site')
 
 @section('titulo')
-    Index
+    Bella Papelaria
 @endsection
 
-@section('cont')
+@section('categorias')
     @if(isset($categorias))
         @foreach ($categorias as $categoria)
             <div class="index-categoria" key="{{ $categoria['categoria'] }}" style="border: 1px solid black;">
@@ -12,14 +12,15 @@
             </div>
         @endforeach
     @endif
+    <input type="button" value="Mostrar todos os produtos" onclick="showAllProducts()">
 @endsection
 
 @section('conteudos')
 
     @if(isset($produtos))
         @foreach ($produtos as $produto)
-            <div class="index-product" key="{{ $produto['categoria_id'] }}" style="border: 1px solid black;">
-                <a href="{{ route('informacoes{id}') }}" class="">
+            <a href="{{ route('informacoes', $produto->id) }}" class="ver detalhes">
+                <div class="index-product" key="{{ $produto['categoria_id'] }}" style="border: 1px solid black;">
                     <img src="/storage/{{ $produto->imagem }}" alt="Foto de {{ $produto['nome'] }}">
                     <p>{{ $produto['nome'] }}</p>
                     <p>{{ $produto['descricao'] }}</p>
@@ -29,11 +30,12 @@
                     @else
                         <p>{{ $produto['quantidade'] }}</p>
                     @endif
-                    <p>{{ $produto['categoria_id']}}</p>
-                </a>
-            </div>
+                    <p>{{ $produto->categoria->categoria }}</p>
+                </div>
+            </a>
         @endforeach
     @endif
+    
 @endsection
 
 

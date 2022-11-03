@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('titulo')</title>
     <link rel="stylesheet" href="{{ asset('site/css/site.css') }}">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
     @include('layouts.site.header')
 
-    @yield('cont')
+    @yield('categorias')
 
     @yield('conteudos')
 
