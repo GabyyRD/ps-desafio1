@@ -16,7 +16,7 @@
 			<div id="header-darkmode">
 				<input type="checkbox" id="dark-mode-toggle" onchange="darkMode(event)">
 				<label for="dark-mode-toggle" class="label-darkmode">
-				  <span id="light-symbol" class="material-symbols-outlined">light_mode</span> <!--style="display: block;"-->
+				  <span id="light-symbol" class="material-symbols-outlined">light_mode</span>
 				  <span id="dark-symbol" class="material-symbols-outlined" style="display: none;">dark_mode</span>
 				</label>
 			  </div>
@@ -24,7 +24,7 @@
 		</ul>
 	  </div>
 	</div>
-  </header>
+</header>
 
 
   

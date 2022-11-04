@@ -4,8 +4,6 @@
     Bella Papelaria
 @endsection
 
-
-
 @section('conteudos')
     <section class="content">
         <h1>PRODUTOS</h1>
@@ -17,7 +15,7 @@
                         <input type="button" value="{{ $categoria['categoria'] }}" onclick="searchProduct('{{ $categoria['id'] }}')" class="index-categories" key="{{ $categoria['categoria'] }}">
                     @endforeach
                 @endif
-                <input class="index-categories" type="button" value="Mostrar todos os produtos" onclick="showAllProducts()">
+                <input class="index-categories" type="button" value="Todos" onclick="showAllProducts()">
             </aside>
             <section id="index-card-section">
                 @if(isset($produtos))
@@ -25,9 +23,6 @@
                         <div class="index-product" key="{{ $produto['categoria_id'] }}">
                             <a href="{{ route('informacoes', $produto->id) }}">
                                 <img src="/storage/{{ $produto->imagem }}" alt="Foto de {{ $produto['nome'] }}" id="product-image">
-                                @if ($produto['quantidade'] == 0)
-                                    <img src="{{ asset('site/img/tela-branca.jpeg') }}" alt="Indisponível" id="white-image">
-                                @endif
                                 <p>{{ $produto['nome'] }}</p>
                                 @if ($produto['quantidade'] == 0)
                                     <p>Não disponível</p>

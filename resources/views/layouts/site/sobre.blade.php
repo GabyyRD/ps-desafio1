@@ -13,30 +13,26 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/47c5567752.js" crossorigin="anonymous"></script>
   </head>
-<body>
-    @include('layouts.site.header')
+  <body>
+      @include('layouts.site.header')
 
-    
+      <section class="content">
+          <h1 class="title">Seja bem-vindo!</h1>
+          <div class="about">
+              <div class="informacoes">
+                  <img src="{{ asset('site/img/bella-papelaria-logo.png') }}" alt="Produto da papelaria">
+              </div>
+              <div class="informacoes">
+              <p id="about-text">A Bella Papelaria é o lugar ideial para quem ama
+              o ambiente de estudos. Sinta-se a vontade e aproveite as ofertas! <i class="fa-regular fa-heart"></i></p></div>
+          </div>
+          <a class="w-e" href="{{ route('siteindex') }}" class=""><i class="fa-regular fa-chevrons-left"></i>   Voltar a tela inicial</a>
+      </section>
 
-    <section class="content">
-        <h1 class="title">Seja bem-vindo!</h1>
-        <div class="about">
-            <div class="informacoes">
-                <img src="{{ asset('site/img/caderno-lilas.jpeg') }}" alt="Produto da papelaria">
-            </div>
-            <div class="informacoes">
-            <p class="" style="margin: 10%; font-size: 30px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque architecto hic recusandae quibusdam quis nobis voluptatibus, esse harum iusto, earum maxime natus eveniet eius facilis. Accusamus iusto ut dolor voluptas.</p></div>
-        </div>
-        <a href="{{ route('siteindex') }}" class=""><i class="fa-regular fa-chevrons-left"></i>   Voltar a tela inicial</a>
-    </section>
+      @include('layouts.site.footer')
 
-
-    
-
-    @include('layouts.site.footer')
-
-    <script src="{{ asset("site/js/siteScripts.js") }}"></script>
-</body>
+      <script src="{{ asset("site/js/siteScripts.js") }}"></script>
+  </body>
 </html>
 
 
