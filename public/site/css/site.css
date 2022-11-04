@@ -1,3 +1,4 @@
+
 * {
 	margin: 0;
 	padding: 0;
@@ -6,7 +7,7 @@
 	outline: none !important;
 	font-family: 'Montserrat', sans-serif;
   }
-  
+
 body {
 	position: relative;
 	min-width: 100vw;
@@ -154,7 +155,7 @@ ul li{
   
 .index-product {
 	width: 20%;
-	height: 60vh;
+	height: 50vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -370,7 +371,7 @@ a.visited {
 @media (max-width: 1040px){
 	.index-product {
 		width: 25%;
-		height: 60vh;
+		height: 50vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
