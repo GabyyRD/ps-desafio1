@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('titulo')</title>
-    <link rel="stylesheet" href="{{ asset('site/CSS/site.css') }}" type="text/css">
-    <style>
-        .sobre {
-            border: 1 px solid black;
-            width: 80%;
-}
-    </style>
-</head>
+    <title>Sobre - Bella Papelaria</title>
+    <link rel="stylesheet" href="{{asset('site/css/site.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/47c5567752.js" crossorigin="anonymous"></script>
+  </head>
 <body>
     @include('layouts.site.header')
 
-    <h1 class="">OIIII</h1>
-
     
-    <div class="sobre" style="border: 1px solid black; width: 80%; display:flex; flex-direction: row; margin: 20vh auto; height: 100vh;">
-        <div class="informacoes" style="border: 1px solid black; width:50%; display: flex; justify-content: center; align-items: center">
-            <img src="{{ asset('site/img/caderno-lilas.jpeg') }}" alt="" style="height: 80%">
+
+    <section class="content">
+        <h1 class="title">Seja bem-vindo!</h1>
+        <div class="about">
+            <div class="informacoes">
+                <img src="{{ asset('site/img/caderno-lilas.jpeg') }}" alt="Produto da papelaria">
+            </div>
+            <div class="informacoes">
+            <p class="" style="margin: 10%; font-size: 30px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque architecto hic recusandae quibusdam quis nobis voluptatibus, esse harum iusto, earum maxime natus eveniet eius facilis. Accusamus iusto ut dolor voluptas.</p></div>
         </div>
-        <div class="informacoes" style="border: 1px solid black; width: 50%; display: flex; justify-content: center; align-items: center">
-        <p class="" style="margin: 10%; font-size: 30px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque architecto hic recusandae quibusdam quis nobis voluptatibus, esse harum iusto, earum maxime natus eveniet eius facilis. Accusamus iusto ut dolor voluptas.</p></div>
-    </div>
-    <a href="{{ route('siteindex') }}" class="">voltar a tela inicial</a>
+        <a href="{{ route('siteindex') }}" class=""><i class="fa-regular fa-chevrons-left"></i>   Voltar a tela inicial</a>
+    </section>
+
 
     
 
